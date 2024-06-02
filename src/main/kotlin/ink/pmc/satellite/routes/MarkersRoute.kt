@@ -1,6 +1,8 @@
 package ink.pmc.satellite.routes
 
 import ink.pmc.common.utils.platform.paper
+import ink.pmc.satellite.markerManager
+import ink.pmc.satellite.utils.model
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.response.*
@@ -14,5 +16,11 @@ fun Route.markersRoute() {
             call.respond(HttpStatusCode.NotFound)
             return@get
         }
+
+        call.respond(
+            markerManager.markers
+                .filter { it.location.world.name == world }
+                .map { it.model }
+        )
     }
 }

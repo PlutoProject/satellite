@@ -1,14 +1,12 @@
 package ink.pmc.satellite.utils
 
 import ink.pmc.satellite.avatarCache
-import ink.pmc.satellite.models.LocationModel
 import ink.pmc.satellite.models.PlayerModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
-import org.bukkit.Location
 import org.bukkit.entity.Player
 import java.io.ByteArrayOutputStream
 import java.net.URI
@@ -36,11 +34,6 @@ suspend fun Player.avatar(): String = withContext(Dispatchers.IO) {
     ImageIO.write(avatarImage, "png", outputStream)
     return@withContext Base64.getEncoder().encodeToString(outputStream.toByteArray())
 }
-
-val Location.model: LocationModel
-    get() {
-        return LocationModel(world.name, x, y, z)
-    }
 
 val Player.model: PlayerModel
     get() {
