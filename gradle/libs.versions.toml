@@ -4,12 +4,14 @@ kotlinx-coroutine = "1.8.1"
 kotlinx-serialization = "1.6.3"
 nightconfig = "3.7.1"
 mccoroutine = "2.16.0"
+ktor = "2.3.11"
 
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 runpaper = { id = "xyz.jpenilla.run-paper", version = "2.3.0" }
 shadow = { id = "com.github.johnrengelman.shadow", version = "8.1.1" }
+resource-factory = { id = "xyz.jpenilla.resource-factory-paper-convention", version = "1.1.1" }
 
 [libraries]
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
@@ -28,9 +30,15 @@ mccoroutine-bukkit-api = { module = "com.github.shynixn.mccoroutine:mccoroutine-
 mccoroutine-bukkit-core = { module = "com.github.shynixn.mccoroutine:mccoroutine-bukkit-core", version.ref = "mccoroutine" }
 dynmap = { module = "org.dynmap:dynmap", version = "3.7-beta-5" }
 common-utils = { module = "ink.pmc.common:utils", version = "1.1.0" }
+ktor-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation-jvm", version.ref = "ktor" }
+ktor-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
+ktor-serialization = { module = "io.ktor:ktor-serialization-kotlinx-json-jvm", version.ref = "ktor" }
+ktor-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
+ktor-config = { module = "io.ktor:ktor-server-config-yaml", version.ref = "ktor" }
 
 [bundles]
 kotlin = ["kotlin-stdlib", "kotlin-reflect", "kotlinx-coroutine-core", "kotlinx-serialization"]
 nightconfig = ["nightconfig-core", "nightconfig-toml"]
 cloud = ["cloud-paper", "cloud-coroutines", "cloud-extensions"]
 mccoroutine = ["mccoroutine-bukkit-api", "mccoroutine-bukkit-core"]
+ktor = ["ktor-content-negotiation", "ktor-core", "ktor-serialization", "ktor-netty", "ktor-config"]
