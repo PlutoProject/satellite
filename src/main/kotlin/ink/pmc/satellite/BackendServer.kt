@@ -1,9 +1,6 @@
 package ink.pmc.satellite
 
-import ink.pmc.satellite.routes.playersRoute
-import ink.pmc.satellite.routes.serverStatusRoute
-import ink.pmc.satellite.routes.tileRoute
-import ink.pmc.satellite.routes.worldsRoute
+import ink.pmc.satellite.routes.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
@@ -25,6 +22,7 @@ class BackendServer(port: Int) : Closeable {
             playersRoute()
             tileRoute()
             worldsRoute()
+            markersRoute()
         }
     }.start()
 
