@@ -2,13 +2,17 @@ package ink.pmc.satellite
 
 import com.electronwill.nightconfig.core.file.FileConfig
 import com.github.shynixn.mccoroutine.bukkit.SuspendingJavaPlugin
+import com.github.shynixn.mccoroutine.bukkit.registerSuspendingEvents
+import ink.pmc.common.utils.platform.paper
 import java.io.File
+import java.util.UUID
 import java.util.logging.Logger
 
 lateinit var backendServer: BackendServer
 lateinit var configFile: File
 lateinit var fileConfig: FileConfig
 lateinit var serverLogger: Logger
+val avatarCache = mutableMapOf<UUID, String>()
 
 @Suppress("UNUSED")
 class Satellite : SuspendingJavaPlugin() {
@@ -21,6 +25,8 @@ class Satellite : SuspendingJavaPlugin() {
         backendServer = BackendServer(port)
 
         logger.info("RESTful API server started at $port")
+
+        paper.pluginManager.registerSuspendingEvents(PlayerListener, this)
     }
 
     override suspend fun onDisableAsync() {

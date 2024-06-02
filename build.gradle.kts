@@ -1,5 +1,3 @@
-import xyz.jpenilla.resourcefactory.bukkit.bukkitPluginYaml
-
 plugins {
     id("java")
     id("java-library")
@@ -7,7 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.shadow)
     alias(libs.plugins.runpaper)
-    alias(libs.plugins.resource.factory)
+    // alias(libs.plugins.resource.factory)
 }
 
 fun kotlin(s: String): String {
@@ -51,7 +49,14 @@ dependencies {
     implementation(project(":api"))
 }
 
-bukkitPluginYaml {
+/*val yaml = bukkitPluginYaml {
     main = "ink.pmc.satellite.Satellite"
     author = "Nostal Yuu"
+    // depend.add("dynmap")
 }
+
+sourceSets.main {
+    resourceFactory {
+        factory(yaml.resourceFactory())
+    }
+}*/

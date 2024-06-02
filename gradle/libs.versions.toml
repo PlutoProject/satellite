@@ -11,7 +11,7 @@ kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 runpaper = { id = "xyz.jpenilla.run-paper", version = "2.3.0" }
 shadow = { id = "com.github.johnrengelman.shadow", version = "8.1.1" }
-resource-factory = { id = "xyz.jpenilla.resource-factory-paper-convention", version = "1.1.1" }
+resource-factory = { id = "xyz.jpenilla.resource-factory-bukkit-convention", version = "1.1.0" }
 
 [libraries]
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
