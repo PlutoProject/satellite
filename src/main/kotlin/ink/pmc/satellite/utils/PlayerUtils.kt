@@ -38,5 +38,5 @@ suspend fun Player.avatar(): String = withContext(Dispatchers.IO) {
 val Player.model: PlayerModel
     get() {
         val avatar = avatarCache[uniqueId] ?: DEFAULT_AVATAR
-        return PlayerModel(uniqueId.toString(), name, location.model, avatar)
+        return PlayerModel(uniqueId.toString(), name, location.model, gameMode, avatar)
     }
