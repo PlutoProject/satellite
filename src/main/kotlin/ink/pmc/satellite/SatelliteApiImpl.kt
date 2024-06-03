@@ -1,3 +1,3 @@
 package ink.pmc.satellite
 
-class SatelliteApiImpl(override val markerManager: MarkerManager, override val tileManager: TileManager) : ISatelliteApi
+class SatelliteApiImpl(override val markerManager: MarkerManager, override val mapManager: MapManager) : ISatelliteApi

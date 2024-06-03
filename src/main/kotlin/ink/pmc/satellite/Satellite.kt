@@ -5,7 +5,7 @@ import com.github.shynixn.mccoroutine.bukkit.SuspendingJavaPlugin
 import com.github.shynixn.mccoroutine.bukkit.registerSuspendingEvents
 import ink.pmc.common.utils.platform.paper
 import ink.pmc.satellite.marker.MarkerManagerImpl
-import ink.pmc.satellite.tile.TileManagerImpl
+import ink.pmc.satellite.map.MapManagerImpl
 import java.io.File
 import java.util.*
 import java.util.logging.Logger
@@ -16,8 +16,10 @@ lateinit var fileConfig: FileConfig
 lateinit var serverLogger: Logger
 lateinit var satelliteApi: ISatelliteApi
 lateinit var markerManager: MarkerManager
-lateinit var tileManager: TileManager
+lateinit var mapManager: MapManager
 val avatarCache = mutableMapOf<UUID, String>()
+
+const val CONFIG_NAME = "config.conf"
 
 @Suppress("UNUSED")
 class Satellite : SuspendingJavaPlugin() {
@@ -32,8 +34,8 @@ class Satellite : SuspendingJavaPlugin() {
         logger.info("RESTful API server started at $port")
 
         markerManager = MarkerManagerImpl()
-        tileManager = TileManagerImpl()
-        satelliteApi = SatelliteApiImpl(markerManager, tileManager)
+        mapManager = MapManagerImpl()
+        satelliteApi = SatelliteApiImpl(markerManager, mapManager)
         ISatelliteApi.instance = satelliteApi
 
         paper.pluginManager.registerSuspendingEvents(PlayerListener, this)
@@ -45,10 +47,10 @@ class Satellite : SuspendingJavaPlugin() {
     }
 
     private fun initConfig() {
-        configFile = File(dataFolder, "config.toml")
+        configFile = File(dataFolder, CONFIG_NAME)
 
         if (!configFile.exists()) {
-            saveResource("config.toml", false)
+            saveResource(CONFIG_NAME, false)
         }
 
         fileConfig = FileConfig.builder(configFile)

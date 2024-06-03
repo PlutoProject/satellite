@@ -9,6 +9,6 @@ interface ISatelliteApi {
     }
 
     val markerManager: MarkerManager
-    val tileManager: TileManager
+    val mapManager: MapManager
 
 }

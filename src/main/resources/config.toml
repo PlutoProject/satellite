@@ -1,6 +1,0 @@
-backend-port = 8890
-
-[world-aliases]
-world = "主世界"
-world_nether = "下界"
-world_the_end = "末地"

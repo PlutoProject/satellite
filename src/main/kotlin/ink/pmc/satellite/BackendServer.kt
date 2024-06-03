@@ -22,6 +22,7 @@ class BackendServer(port: Int) : Closeable {
             playersRoute()
             tileRoute()
             worldsRoute()
+            mapsRoute()
             markersRoute()
         }
     }.start()
