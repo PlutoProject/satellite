@@ -50,7 +50,11 @@ class Satellite : SuspendingJavaPlugin() {
             saveResource("config.toml", false)
         }
 
-        fileConfig = FileConfig.of(configFile)
+        fileConfig = FileConfig.builder(configFile)
+            .autosave()
+            .autoreload()
+            .sync()
+            .build()
         fileConfig.load()
     }
 
