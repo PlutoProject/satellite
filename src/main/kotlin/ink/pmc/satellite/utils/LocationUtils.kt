@@ -5,5 +5,5 @@ import org.bukkit.Location
 
 val Location.model: LocationModel
     get() {
-        return LocationModel(world.name, x, y, z)
+        return LocationModel(world.name, x, y, z, chunk.x, chunk.z)
     }

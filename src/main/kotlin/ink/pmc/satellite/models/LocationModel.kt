@@ -7,5 +7,7 @@ data class LocationModel(
     val world: String,
     val x: Double,
     val y: Double,
-    val z: Double
+    val z: Double,
+    val chunkX: Int,
+    val chunkZ: Int
 )
