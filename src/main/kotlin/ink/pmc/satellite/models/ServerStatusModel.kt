@@ -6,5 +6,7 @@ import kotlinx.serialization.Serializable
 data class ServerStatusModel(
     val maxPlayerCount: Int,
     val onlinePlayers: Int,
-    val worlds: List<WorldModel>
+    val tickPerSecond: Double,
+    val tickTime: Double,
+    val memoryInfo: MemoryInfoModel
 )
