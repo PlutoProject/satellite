@@ -5,7 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.shadow)
     alias(libs.plugins.runpaper)
-    // alias(libs.plugins.resource.factory)
+    alias(libs.plugins.resource.factory)
 }
 
 fun kotlin(s: String): String {
@@ -49,14 +49,10 @@ dependencies {
     implementation(project(":api"))
 }
 
-/*val yaml = bukkitPluginYaml {
+bukkitPluginYaml {
     main = "ink.pmc.satellite.Satellite"
     author = "Nostal Yuu"
+    apiVersion = "1.20"
+    depend.add("common-utils")
     // depend.add("dynmap")
 }
-
-sourceSets.main {
-    resourceFactory {
-        factory(yaml.resourceFactory())
-    }
-}*/

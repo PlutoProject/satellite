@@ -13,5 +13,5 @@ fun serverStatusModel(): ServerStatusModel {
 }
 
 fun serverWorldsModel(): List<WorldModel> {
-    return paper.worlds.map { it.model() }
+    return paper.worlds.map { it.model }
 }
