@@ -54,5 +54,5 @@ bukkitPluginYaml {
     author = "Nostal Yuu"
     apiVersion = "1.20"
     depend.add("common-utils")
-    // depend.add("dynmap")
+    depend.add("dynmap")
 }

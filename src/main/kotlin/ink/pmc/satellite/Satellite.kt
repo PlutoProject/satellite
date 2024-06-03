@@ -5,6 +5,7 @@ import com.github.shynixn.mccoroutine.bukkit.SuspendingJavaPlugin
 import com.github.shynixn.mccoroutine.bukkit.registerSuspendingEvents
 import ink.pmc.common.utils.platform.paper
 import ink.pmc.satellite.marker.MarkerManagerImpl
+import ink.pmc.satellite.tile.TileManagerImpl
 import java.io.File
 import java.util.*
 import java.util.logging.Logger
