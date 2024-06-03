@@ -11,7 +11,7 @@ import io.ktor.server.routing.*
 fun Route.tileRoute() {
     get("/tile/{world}/{type}/{x}/{z}/{zoom}") {
         suspend fun notExisted() {
-            call.respondNullable(HttpStatusCode.NotFound, "Tile not found")
+            call.respond(HttpStatusCode.NotFound)
             return
         }
 
@@ -29,7 +29,7 @@ fun Route.tileRoute() {
         val format = file.second ?: return@get notExisted()
 
         call.respondOutputStream(format.toContentType(), HttpStatusCode.OK) {
-            input.copyTo(this)
+            input.copyTo(this).also { input.close() }
         }
     }
 }
